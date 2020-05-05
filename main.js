@@ -11,8 +11,6 @@ function createWindow(){
     });
 
     window.loadFile('html/index.html');
-
-    window.webContents.openDevTools();
 }
 
 app.whenReady().then(createWindow);
