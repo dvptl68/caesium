@@ -3,12 +3,19 @@
   src: url(../fonts/Righteous/Righteous-Regular.ttf);
 }
 
+@font-face {
+  font-family: 'Aktiv Grotesk';
+  src: url(../fonts/Aktiv-Grotesk/Aktiv-Grotesk.ttf);
+}
+
 html {
   font-size: 16;
 }
 
 body {
-  background-color: #393e46;
+  background-color: #393E46;
+  cursor: default;
+  user-select: none;
 }
 
 #welcome-div {
@@ -25,13 +32,24 @@ body {
 
 #main-title {
   font-family: 'Righteous';
-  font-size: 4rem;
+  font-size: 6rem;
+  margin: 10px 0px;
 }
 
 #first-title-letter {
-  color: #a7d129;
+  color: #A7D129;
 }
 
 #finish-title-word {
-  color: #448ef6;
+  color: #448EF6;
+}
+
+.log-sign {
+  background-color: inherit;
+  color: #448EF6;
+  border: 2px solid #448EF6;
+  border-radius: 4px;
+  font-family: 'Righteous';
+  font-size: 2rem;
+  margin: 0px 5px;
 }
