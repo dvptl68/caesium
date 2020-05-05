@@ -1,3 +1,8 @@
+@font-face {
+  font-family: 'Righteous';
+  src: url(../fonts/Righteous/Righteous-Regular.ttf);
+}
+
 html {
   font-size: 16;
 }
@@ -6,7 +11,7 @@ body {
   background-color: #393e46;
 }
 
-#main-title-div {
+#welcome-div {
   overflow: hidden;
   white-space: nowrap;
   text-align: center;
@@ -19,8 +24,8 @@ body {
 }
 
 #main-title {
-  font-size: 3rem;
-  font-weight: bold;
+  font-family: 'Righteous';
+  font-size: 4rem;
 }
 
 #first-title-letter {
