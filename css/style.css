@@ -33,7 +33,7 @@ body {
 #main-title {
   font-family: 'Righteous';
   font-size: 6rem;
-  margin: 10px 0px;
+  margin-bottom: 15px;
 }
 
 #first-title-letter {
@@ -47,9 +47,21 @@ body {
 .log-sign {
   background-color: inherit;
   color: #448EF6;
-  border: 2px solid #448EF6;
-  border-radius: 4px;
+  border: 3px solid #448EF6;
+  border-radius: 8px;
   font-family: 'Righteous';
   font-size: 2rem;
   margin: 0px 5px;
+  padding: 2px 5px;
+  /* transition: color 0.4s, background-color 0.4s; */
+}
+
+.log-sign:hover {
+  cursor: pointer;
+  background-color: #448EF6;
+  color: #393E46;
+}
+
+.log-sign:focus {
+  outline: none;
 }

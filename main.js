@@ -3,14 +3,16 @@ const {app, BrowserWindow} = require('electron');
 function createWindow(){
 
     const window = new BrowserWindow({
-        width: 800,
-        height: 600,
+        width: 1500,
+        height: 900,
+        icon: 'images/icon.png',
         webPreferences: {
             nodeIntegration: true
         }
     });
 
     window.loadFile('html/index.html');
+    window.removeMenu();
 }
 
 app.whenReady().then(createWindow);
