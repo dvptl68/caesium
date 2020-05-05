@@ -1,0 +1,14 @@
+{
+  "name": "caesium",
+  "version": "1.0.0",
+  "description": "Desktop instant messaging app",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "author": "Dev Patel",
+  "license": "ISC",
+  "dependencies": {
+    "electron": "^8.2.5"
+  }
+}
