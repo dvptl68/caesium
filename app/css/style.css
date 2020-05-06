@@ -65,3 +65,7 @@ body {
 .log-sign:focus {
   outline: none;
 }
+
+#back {
+  display: none;
+}

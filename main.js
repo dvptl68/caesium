@@ -1,21 +1,27 @@
-const {app, BrowserWindow} = require('electron');
+const {app, BrowserWindow, webContents} = require('electron');
+
+let window;
 
 function createWindow(){
 
-    const window = new BrowserWindow({
+    window = new BrowserWindow({
         width: 1500,
         height: 900,
-        icon: 'images/icon.png',
+        icon: 'app/images/icon.png',
+        show: false,
         webPreferences: {
             nodeIntegration: true
         }
     });
 
-    window.loadFile('html/index.html');
-    window.removeMenu();
-}
+    window.loadFile('app/html/index.html');
+    // window.removeMenu();
 
-app.whenReady().then(createWindow);
+    window.on('ready-to-show', function(){
+        window.show();
+        window.focus();
+    });
+}
 
 app.on('windows-all-closed', function(){
     if (process.platform !== 'darwin'){
@@ -23,7 +29,7 @@ app.on('windows-all-closed', function(){
     }
 });
 
-app.on('activate', function(){
+app.on('ready', function(){
     if (BrowserWindow.getAllWindows().length === 0){
         createWindow();
     }
