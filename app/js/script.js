@@ -9,7 +9,6 @@ let info = document.getElementById('info-div');
 let login = buttons.item(0);
 let signup = buttons.item(1);
 let infoBox = document.getElementsByClassName('info');
-let passConf = document.getElementById('passConf');
 let back = document.getElementById('back');
 let submit = document.getElementById('submit');
 
@@ -37,10 +36,11 @@ const startProgram = event => {
     welcome.style.display = 'none';
     info.style.opacity = '1';
   }, 1000);
-}
+};
 
 login.addEventListener('click', startProgram);
 signup.addEventListener('click', startProgram);
+
 back.addEventListener('click', () => {
   login.style.cursor = 'pointer';
   signup.style.cursor = 'pointer';
@@ -58,3 +58,16 @@ back.addEventListener('click', () => {
     submit.style.display = 'none';
   }, 1000);
 });
+
+let fname = document.getElementById('fname');
+let lname = document.getElementById('lname');
+let email = document.getElementById('email');
+let pass = document.getElementById('pass');
+let passConf = document.getElementById('passConf');
+
+const checkValid = event => {
+  let emailFormat = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  let validEmail = emailFormat.test(String(email.value).toLowerCase());
+};
+
+submit.addEventListener('click', checkValid);
