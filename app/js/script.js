@@ -12,12 +12,13 @@ let infoBox = document.getElementsByClassName('info');
 let passConf = document.getElementById('passConf');
 let back = document.getElementById('back');
 let submit = document.getElementById('submit');
-function startProgram(event){
+
+const startProgram = event => {
   login.style.cursor = 'default';
   signup.style.cursor = 'default';
-  welcome.style.transitionDuration = '1s';
+  back.style.cursor = 'pointer';
+  submit.style.cursor = 'pointer';
   welcome.style.opacity = '0';
-  info.style.transitionDuration = '1s';
   info.style.display = 'inline-block';
   for (let i = 0; i < infoBox.length; i++){
     infoBox.item(i).style.display = 'block';
@@ -29,7 +30,7 @@ function startProgram(event){
   }
   back.style.display = 'inline-block';
   submit.style.display = 'inline-block';
-  setTimeout(function(){
+  setTimeout(() => {
     welcome.style.display = 'none';
     info.style.opacity = '1';
   }, 1000);
@@ -37,3 +38,20 @@ function startProgram(event){
 
 login.addEventListener('click', startProgram);
 signup.addEventListener('click', startProgram);
+back.addEventListener('click', () => {
+  login.style.cursor = 'pointer';
+  signup.style.cursor = 'pointer';
+  back.style.cursor = 'default';
+  submit.style.cursor = 'default';
+  info.style.opacity = '0';
+  welcome.style.display = 'inline-block';
+  setTimeout(() => {
+    welcome.style.opacity = '1';
+    info.style.display = 'none';
+    for (let i = 0; i < infoBox.length; i++){
+      infoBox.item(i).style.display = 'none';
+    }
+    back.style.display = 'none';
+    submit.style.display = 'none';
+  }, 1000);
+});
