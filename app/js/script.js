@@ -27,6 +27,9 @@ const startProgram = event => {
     infoBox.item(0).style.display = 'none';
     infoBox.item(1).style.display = 'none';
     infoBox.item(4).style.display = 'none';
+    submit.innerHTML = 'Log In';
+  }else{
+    submit.innerHTML = 'Sign up';
   }
   back.style.display = 'inline-block';
   submit.style.display = 'inline-block';
