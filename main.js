@@ -1,12 +1,14 @@
-const {app, BrowserWindow, webContents} = require('electron');
+const { app, BrowserWindow, webContents } = require('electron');
+const { screen } = require('electron');
 
 let window;
 
 function createWindow(){
 
+    const { width, height } = screen.getPrimaryDisplay().workAreaSize;
     window = new BrowserWindow({
-        width: 1500,
-        height: 900,
+        width: Math.floor(width * 0.8),
+        height: Math.floor(height * 0.9),
         icon: 'app/images/icon.png',
         show: false,
         webPreferences: {
