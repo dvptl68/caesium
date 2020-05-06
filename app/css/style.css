@@ -44,7 +44,7 @@ body {
   color: #448EF6;
 }
 
-.log-sign {
+.intro {
   background-color: inherit;
   color: #448EF6;
   border: 3px solid #448EF6;
@@ -53,16 +53,15 @@ body {
   font-size: 2rem;
   margin: 0px 5px;
   padding: 2px 5px;
-  /* transition: color 0.4s, background-color 0.4s; */
 }
 
-.log-sign:hover {
+.intro:hover {
   cursor: pointer;
   background-color: #448EF6;
   color: #393E46;
 }
 
-.log-sign:focus {
+.intro:focus {
   outline: none;
 }
 
