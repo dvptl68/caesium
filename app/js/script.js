@@ -91,8 +91,24 @@ submit.addEventListener('click', () => {
   let emailFormat = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   let validEmail = emailFormat.test(String(email.value).toLowerCase());
   warning.children[0].innerHTML = validEmail ? '' : 'Must enter valid email address';
+  let validPassword = true;
   if (submit.value === 'Sign up'){
-    let validPassword = pass.value === passConf.value;
+    validPassword = pass.value === passConf.value;
     warning.children[1].innerHTML = validPassword ? '' : 'Passwords must match';
   }
+  if (validPassword){
+    validPassword = pass.value !== '';
+    warning.children[1].innerHTML = validPassword ? '' : 'Password cannot be empty';
+  }
+  
+  if (validEmail && validPassword){
+    changePage();
+  }
 });
+
+const changePage = () => {
+  info.style.opacity = '0';
+  setTimeout(() => {
+    info.style.display = 'none';
+  }, 1000);
+};
