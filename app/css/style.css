@@ -102,3 +102,12 @@ body {
 #back {
   padding: 2px 15px;
 }
+
+#show-pass {
+  display: none;
+}
+
+#show-pass-label {
+  font-size: 1.1rem;
+  color: #448EF6;
+}

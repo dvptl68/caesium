@@ -11,6 +11,7 @@ let signup = buttons.item(1);
 let infoBox = document.getElementsByClassName('info');
 let back = document.getElementById('back');
 let submit = document.getElementById('submit');
+let showPass = document.getElementById('show-pass');
 
 const startProgram = event => {
   login.style.cursor = 'default';
@@ -30,6 +31,7 @@ const startProgram = event => {
   }else{
     submit.innerHTML = 'Sign up';
   }
+  showPass.style.display = 'inline-block';
   back.style.display = 'inline-block';
   submit.style.display = 'inline-block';
   setTimeout(() => {
@@ -40,6 +42,16 @@ const startProgram = event => {
 
 login.addEventListener('click', startProgram);
 signup.addEventListener('click', startProgram);
+showPass.addEventListener('click', event => {
+  if (event.target.checked){
+    infoBox.item(3).type = 'text';
+    infoBox.item(4).type = 'text';
+  }else{
+    infoBox.item(3).type = 'password';
+    infoBox.item(4).type = 'password';
+
+  }
+});
 
 back.addEventListener('click', () => {
   login.style.cursor = 'pointer';
@@ -52,8 +64,13 @@ back.addEventListener('click', () => {
     welcome.style.opacity = '1';
     info.style.display = 'none';
     for (let i = 0; i < infoBox.length; i++){
+      infoBox.item(i).value = '';
       infoBox.item(i).style.display = 'none';
     }
+    showPass.checked = false;
+    infoBox.item(3).type = 'password';
+    infoBox.item(4).type = 'password';
+    showPass.style.display = 'none';
     back.style.display = 'none';
     submit.style.display = 'none';
   }, 1000);
@@ -65,9 +82,9 @@ let email = document.getElementById('email');
 let pass = document.getElementById('pass');
 let passConf = document.getElementById('passConf');
 
-const checkValid = event => {
+submit.addEventListener('click', () => {
   let emailFormat = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   let validEmail = emailFormat.test(String(email.value).toLowerCase());
-};
-
-submit.addEventListener('click', checkValid);
+  let validPassword = pass.value === passConf.value;
+  console.log(`Email: ${validEmail}, Password: ${validPassword}`);
+});
