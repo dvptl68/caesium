@@ -81,6 +81,19 @@ body {
   transition: opacity 1s;
 }
 
+#warning-div {
+  width: 100%;
+  height: 50px;
+}
+
+.warning {
+  font-size: 1.35rem;
+  font-weight: bold;
+  color: #F08080;
+  padding: 0px 0px;
+  margin: 0px 0px;
+}
+
 .info {
   font-size: 1rem;
   width: 300px;

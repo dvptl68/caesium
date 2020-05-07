@@ -12,6 +12,7 @@ let infoBox = document.getElementsByClassName('info');
 let back = document.getElementById('back');
 let submit = document.getElementById('submit');
 let showPass = document.getElementById('show-pass');
+let warning = document.getElementById('warning-div');
 
 const startProgram = event => {
   login.style.cursor = 'default';
@@ -28,8 +29,10 @@ const startProgram = event => {
     infoBox.item(1).style.display = 'none';
     infoBox.item(4).style.display = 'none';
     submit.innerHTML = 'Log In';
+    submit.value = 'Log In';
   }else{
     submit.innerHTML = 'Sign up';
+    submit.value = 'Sign up';
   }
   showPass.style.display = 'inline-block';
   back.style.display = 'inline-block';
@@ -63,6 +66,8 @@ back.addEventListener('click', () => {
   setTimeout(() => {
     welcome.style.opacity = '1';
     info.style.display = 'none';
+    warning.children[0].innerHTML = '';
+    warning.children[1].innerHTML = '';
     for (let i = 0; i < infoBox.length; i++){
       infoBox.item(i).value = '';
       infoBox.item(i).style.display = 'none';
@@ -85,6 +90,9 @@ let passConf = document.getElementById('passConf');
 submit.addEventListener('click', () => {
   let emailFormat = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   let validEmail = emailFormat.test(String(email.value).toLowerCase());
-  let validPassword = pass.value === passConf.value;
-  console.log(`Email: ${validEmail}, Password: ${validPassword}`);
+  warning.children[0].innerHTML = validEmail ? '' : 'Must enter valid email address';
+  if (submit.value === 'Sign up'){
+    let validPassword = pass.value === passConf.value;
+    warning.children[1].innerHTML = validPassword ? '' : 'Passwords must match';
+  }
 });
