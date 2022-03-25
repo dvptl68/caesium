@@ -9,6 +9,6 @@
   "author": "Dev Patel",
   "license": "ISC",
   "dependencies": {
-    "electron": "^9.4.0"
+    "electron": "^13.6.6"
   }
 }
